@@ -1,0 +1,87 @@
+<div class="app-entry">
+  <mat-toolbar class="app-header" [color]="'primary'">User Validator</mat-toolbar>
+  <div class="main-container">
+    <section class="slider-section" [style.background]="'#FAFAFA'">
+      <mat-card>
+        <mat-card-content>
+          <mat-form-field>
+            <input matInput
+                   [max]="50"
+                   [min]="0"
+                   [type]="'number'"
+                   placeholder="Last Active"
+                   [(ngModel)]="inputObj.lastActive" />
+          </mat-form-field>
+        </mat-card-content>
+
+        <mat-card-content>
+          <mat-form-field>
+            <input matInput
+                   [max]="50"
+                   [min]="0"
+                   [type]="'number'"
+                   [(ngModel)]="inputObj.sessions"
+                   placeholder="Times Logged In" />
+          </mat-form-field>
+        </mat-card-content>
+
+        <mat-card-content>
+          <mat-form-field>
+            <input [type]="'number'"
+                   [max]="50"
+                   [min]="0"
+                   matInput
+                   placeholder="Browsing Duration"
+                   [(ngModel)]="inputObj.sessionDuration" />
+          </mat-form-field>
+        </mat-card-content>
+
+        <mat-card-content>
+          <mat-form-field>
+            <input [type]="'number'"
+                   [min]="0"
+                   matInput
+                   placeholder="No of Clicks"
+                   [(ngModel)]="inputObj.clicks" />
+          </mat-form-field>
+        </mat-card-content>
+
+        <mat-card-content>
+          <mat-form-field>
+            <input [type]="'number'"
+                   [max]="50"
+                   [min]="0"
+                   matInput
+                   placeholder="Mail Offender"
+                   [(ngModel)]="inputObj.mailOffender" />
+          </mat-form-field>
+        </mat-card-content>
+
+        <mat-card-content>
+          <mat-form-field>
+            <input [type]="'number'"
+                   [max]="50"
+                   [min]="0"
+                   matInput
+                   placeholder="Not Spammed"
+                   [(ngModel)]="inputObj.notSpammed" />
+          </mat-form-field>
+        </mat-card-content>
+        <mat-card-content>
+          <button (click)="compute()" mat-raised-button color="primary">Check User</button>
+        </mat-card-content>
+      </mat-card>
+    </section>
+    <section [style.background]="confidence > 6.0 ? '#A5D6A7' : '#D6AAA5'"
+             class="result-section">
+      <span>
+        Score: {{ confidence }}
+      </span>
+      <h1>
+        {{
+ confidence > 6.0 ? 'Valid' : 'Fake User'
+        }}
+      </h1>
+    </section>
+  </div>
+</div>
